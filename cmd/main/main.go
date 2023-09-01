@@ -4,7 +4,7 @@ import(
 	"net/http"
 	"github.com/gorilla/mux"
 	_ "gorm.io/driver/mysql"
-	"github.com/kushagra-gupta01/bookStore.git/pkg/routes"
+	"github.com/kushagra-gupta01/bookStore/pkg/routes"
 )
 
 func main(){

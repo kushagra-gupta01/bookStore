@@ -1,4 +1,4 @@
-module github.com/kushagra-gupta01/bookStore.git
+module github.com/kushagra-gupta01/bookStore
 
 go 1.20
 
