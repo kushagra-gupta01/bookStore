@@ -9,7 +9,7 @@ import(
 	"github.com/gorilla/mux"
 )
 var NewBook models.Book
-func getBook(w http.ResponseWriter,r *http.Request){
+func GetBook(w http.ResponseWriter,r *http.Request){
 	NewBook:=models.GetAllBooks()
 	res,_ := json.Marshal(NewBook)
 	w.Header().Set("Content-Type","application/json")
@@ -17,7 +17,7 @@ func getBook(w http.ResponseWriter,r *http.Request){
 	w.Write(res)
 }
 
-func getBookById(w http.ResponseWriter, r *http.Request){
+func GetBookById(w http.ResponseWriter, r *http.Request){
 	vars:=mux.Vars(r)
 	bookId:= vars["BookId"]
 	Id,err :=strconv.ParseInt(bookId,0,0)
@@ -31,16 +31,16 @@ func getBookById(w http.ResponseWriter, r *http.Request){
 	w.Write(res)
 }
 
-func createBook(w http.ResponseWriter,r *http.Request){
+func CreateBook(w http.ResponseWriter,r *http.Request){
 	CreateBook:=&models.Book{}
 	utils.ParseBody(r,CreateBook)
-	b:=CreateBook.createBook()
+	b:=CreateBook.CreateBook()
 	res,_:=json.Marshal(b)
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
 
-func deleteBook(w http.ResponseWriter,r *http.Request){
+func DeleteBook(w http.ResponseWriter,r *http.Request){
 	Vars:=mux.Vars(r)
 	bookId:=Vars["bookId"]
 	id,err:=strconv.ParseInt(bookId,0,0)
